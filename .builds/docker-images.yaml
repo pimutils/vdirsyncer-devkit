@@ -9,6 +9,10 @@ tasks:
   - setup: |
       sudo systemctl start docker.socket
       cat ~/.docker-hub-token | docker login --username whynothugo --password-stdin
+  - baikal: |
+      cd vdirsyncer-devkit/baikal
+      docker build -t whynothugo/vdirsyncer-devkit-baikal .
+      docker push whynothugo/vdirsyncer-devkit-baikal
   - radicale: |
       cd vdirsyncer-devkit/radicale
       docker build -t whynothugo/vdirsyncer-devkit-radicale .
