@@ -1,0 +1,19 @@
+image: archlinux
+packages:
+  - docker
+sources:
+  - https://github.com/pimutils/vdirsyncer-devkit/
+secrets:
+  - 5988216b-b889-44bc-8170-9218352e1b2d
+tasks:
+  - setup: |
+      sudo systemctl start docker.socket
+      cat ~/.docker-hub-token | docker login --username whynothugo --password-stdin
+  - radicale: |
+      cd vdirsyncer-devkit/radicale
+      docker build -t whynothugo/vdirsyncer-devkit-radicale .
+      docker push whynothugo/vdirsyncer-devkit-radicale
+  - xandikos: |
+      cd vdirsyncer-devkit/xandikos
+      docker build -t whynothugo/vdirsyncer-devkit-xandikos .
+      docker push whynothugo/vdirsyncer-devkit-xandikos
