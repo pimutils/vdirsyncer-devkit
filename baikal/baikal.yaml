@@ -1,5 +1,5 @@
 system:
-    configured_version: 0.7.0
+    configured_version: 0.8.0
     timezone: Europe/Paris
     card_enabled: true
     cal_enabled: true

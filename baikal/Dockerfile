@@ -2,7 +2,7 @@
 # Sadly, we can't override the VOLUME it has set, and we want some static
 # config.
 FROM php:7.4-apache
-ENV VERSION 0.7.0
+ENV VERSION 0.8.0
 
 ADD https://github.com/sabre-io/Baikal/releases/download/$VERSION/baikal-$VERSION.zip .
 RUN apt-get update && apt-get install -y sqlite3 unzip
